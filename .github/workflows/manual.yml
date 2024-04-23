@@ -25,8 +25,8 @@ jobs:
         with:
           browser: chrome
 
-      - name: Export reports
-        if: always()
-        run: |
-          npx mochawesome-merge "cypress/reports/*.json" > mochawesome.json
-          npx marge mochawesome.json --cdn
+      # - name: Export reports
+      #   if: always()
+      #   run: |
+      #     npx mochawesome-merge "cypress/reports/*.json" > mochawesome.json
+      #     npx marge mochawesome.json --cdn
