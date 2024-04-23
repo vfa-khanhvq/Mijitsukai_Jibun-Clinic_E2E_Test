@@ -1,0 +1,57 @@
+name: Run Cypress Tests - Dev2
+
+# on: push
+on:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: npm install
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        env:
+          BASE_URL: https://dev2.tospo-keiba.jp
+        with:
+          browser: chrome
+
+      - name: Export reports
+        if: always()
+        run: |
+          npx mochawesome-merge "cypress/reports/*.json" > mochawesome.json
+          npx marge mochawesome.json --cdn
+
+      - name: Configure AWS credentials
+        if: always()
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.DEV2_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV2_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.DEV2_AWS_REGION }}
+
+      - name: 'Set current date as env variable'
+        if: always()
+        run: |
+          echo "builddate=$(date +'%Y-%m-%d/%Y-%m-%dT%H%M%S')" >> $GITHUB_OUTPUT
+        id: version # this is used on variable path
+
+      - name: Upload File
+        if: always()
+        run: |
+          pwd
+          ls
+          mkdir -p cypress/screenshots
+          aws s3 cp mochawesome-report s3://dev2-tospo-evidences/cypress/${{ steps.version.outputs.builddate }} --recursive
+          aws s3 cp cypress/reports s3://dev2-tospo-evidences/cypress/${{ steps.version.outputs.builddate }}/reports --recursive
+          aws s3 cp cypress/screenshots s3://dev2-tospo-evidences/cypress/${{ steps.version.outputs.builddate }}/screenshots --recursive
+          aws s3 cp cypress/videos s3://dev2-tospo-evidences/cypress/${{ steps.version.outputs.builddate }}/videos --recursive
