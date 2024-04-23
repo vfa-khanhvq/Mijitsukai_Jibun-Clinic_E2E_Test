@@ -1,8 +1,8 @@
-name: Run Cypress Tests - 5 minutes
+name: Run Cypress Tests - manual
 
+# on: push
 on:
-  schedule:
-    - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 jobs:
   cypress-run:
@@ -20,13 +20,13 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        env:
+          BASE_URL: https://dev2.tospo-keiba.jp
         with:
-          start: npm run run:e2e
           browser: chrome
 
       - name: Export reports
         if: always()
         run: |
-          npx mochawesome-merge "cypress/results/*.json" > mochawesome.json
-          npx marge mochawesome.json
-
+          npx mochawesome-merge "cypress/reports/*.json" > mochawesome.json
+          npx marge mochawesome.json --cdn
