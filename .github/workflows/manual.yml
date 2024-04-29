@@ -24,7 +24,14 @@ jobs:
           BASE_URL: https://dev2.tospo-keiba.jp
         with:
           browser: chrome
-
+      - name: Upload to gdrive
+        uses: adityak74/google-drive-upload-git-action@main
+        with:
+          credentials: ${{ secrets.credentials }}
+          filename: "data.json"
+          folderId: "1exjAbhv-WgDX61yjSWYn-WXNb4nc-dFz"
+          name: "documentation.zip" # optional string
+          overwrite: "false" # optional boolean
       # - name: Configure AWS credentials
       #   if: always()
       #   uses: aws-actions/configure-aws-credentials@v1
