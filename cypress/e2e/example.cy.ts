@@ -123,8 +123,11 @@ describe("My First Test", () => {
       });
   });
   after(() => {
-    const time = new Date().toLocaleTimeString();
-    cy.writeFile(`data/${time}.json`, {
+    const time = new Date();
+    const strtime = `${time.getFullYear()} ${
+      time.getMonth() + 1
+    } ${time.getDate()} - ${time.toLocaleTimeString()}`;
+    cy.writeFile(`data/${strtime}.json`, {
       countSelected1,
       countSelected2,
       countSelected3,
