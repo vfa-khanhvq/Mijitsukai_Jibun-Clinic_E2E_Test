@@ -25,112 +25,102 @@ describe("My First Test", () => {
     cy.get("#area_select").select("北海道");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
+      .should("have.length", 1);
+    cy.get("#store_select > div.block-body.store_list")
+      .find("div")
       .then(($elements) => {
         countSelected1 = $elements.length;
       });
+    cy.get("#area_select").select("北海道");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .should("have.length", 1);
-
-    cy.get("#area_select").select("北海道");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected2 = $elements.length;
       });
+    cy.get("#area_select").select("東京23区");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 1);
-
-    cy.get("#area_select").select("東京23区");
+      .should("have.length", 6);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected3 = $elements.length;
       });
+    cy.get("#area_select").select("東京23区外");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 6);
-
-    cy.get("#area_select").select("東京23区外");
+      .should("have.length", 3);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected4 = $elements.length;
       });
+    cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 3);
-
-    cy.get("#area_select").select("神奈川県");
+      .should("have.length", 2);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected5 = $elements.length;
       });
+    cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .should("have.length", 2);
-
-    cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected6 = $elements.length;
       });
+    cy.get("#area_select").select("埼玉県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .should("have.length", 2);
-
-    cy.get("#area_select").select("埼玉県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected7 = $elements.length;
       });
+    cy.get("#area_select").select("千葉県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 2);
-
-    cy.get("#area_select").select("千葉県");
+      .should("have.length", 4);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected8 = $elements.length;
       });
+    cy.get("#area_select").select("大阪府");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .should("have.length", 4);
-
-    cy.get("#area_select").select("大阪府");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected9 = $elements.length;
       });
+    cy.get("#area_select").select("愛知県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 4);
-
-    cy.get("#area_select").select("愛知県");
+      .should("have.length", 2);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected10 = $elements.length;
       });
+    cy.get("#area_select").select("福岡県");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 2);
-
-    cy.get("#area_select").select("福岡県");
+      .should("have.length", 1);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected11 = $elements.length;
       });
-    cy.get("#store_select > div.block-body.store_list")
-      .find("div")
-      .should("have.length", 1);
   });
   after(() => {
     const time = new Date();
