@@ -127,7 +127,7 @@ describe("My First Test", () => {
     const strtime = `${time.getFullYear()} ${
       time.getMonth() + 1
     } ${time.getDate()} - ${time.toLocaleTimeString()}`;
-    cy.writeFile(`data.json`, {
+    cy.writeFile(`data/${strtime}.json`, {
       countSelected1,
       countSelected2,
       countSelected3,
