@@ -24,3 +24,19 @@ jobs:
           BASE_URL: https://dev2.tospo-keiba.jp
         with:
           browser: chrome
+
+      - name: Configure AWS credentials
+        if: always()
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+            aws-access-key-id: ${{ secrets.DEV2_AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.DEV2_AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.DEV2_AWS_REGION }}
+
+      - name: Upload File
+        if: always()
+        run: |
+          pwd
+          ls
+            aws s3 cp data s3://dev2-tospo-evidences/temp-cypress --recursive
+  
