@@ -29,7 +29,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 1) {
+        countSelected1 = $elements.length;
+        if (countSelected1 < 1) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -37,7 +38,7 @@ describe("My First Test", () => {
           cy.screenshot(`北海道_${timeFailed}`);
     
         }
-        countSelected1 = $elements.length;
+        
       });
     cy.get("#area_select").select("北海道");
     cy.get("#store_select > div.block-body.store_list")
@@ -46,14 +47,15 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 1) {
+        countSelected2 = $elements.length;
+        if (countSelected2 < 1) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
           }${time.getDate()} - ${time.toLocaleTimeString()}`;
           cy.screenshot(`北海道_${timeFailed}`);
         }
-        countSelected2 = $elements.length;
+        
       });
     cy.get("#area_select").select("東京23区");
     cy.get("#store_select > div.block-body.store_list")
@@ -62,7 +64,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 6) {
+        countSelected3 = $elements.length;
+        if (countSelected3 < 6) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -70,7 +73,7 @@ describe("My First Test", () => {
           cy.screenshot(`東京23区_${timeFailed}`);
     
         }
-        countSelected3 = $elements.length;
+        
       });
     cy.get("#area_select").select("東京23区外");
     cy.get("#store_select > div.block-body.store_list")
@@ -79,7 +82,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 3) {
+        countSelected4 = $elements.length;
+        if (countSelected4 < 3) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -87,7 +91,7 @@ describe("My First Test", () => {
           cy.screenshot(`東京23区外_${timeFailed}`);
     
         }
-        countSelected4 = $elements.length;
+        
       });
     cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
@@ -96,7 +100,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 2) {
+        countSelected5 = $elements.length;
+        if (countSelected5 < 2) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()} ${
             time.getMonth() + 1
@@ -104,7 +109,7 @@ describe("My First Test", () => {
           cy.screenshot(`神奈川県_${timeFailed}`);
     
         }
-        countSelected5 = $elements.length;
+        
       });
     cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
@@ -113,7 +118,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 2) {
+        countSelected6 = $elements.length;
+        if (countSelected6 < 2) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -121,7 +127,7 @@ describe("My First Test", () => {
           cy.screenshot(`神奈川県_${timeFailed}`);
     
         }
-        countSelected6 = $elements.length;
+        
       });
     cy.get("#area_select").select("埼玉県");
     cy.get("#store_select > div.block-body.store_list")
@@ -130,7 +136,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 2) {
+        countSelected7 = $elements.length;
+        if (countSelected7 < 2) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -138,7 +145,7 @@ describe("My First Test", () => {
           cy.screenshot(`埼玉県_${timeFailed}`);
     
         }
-        countSelected7 = $elements.length;
+        
       });
     cy.get("#area_select").select("千葉県");
     cy.get("#store_select > div.block-body.store_list")
@@ -147,7 +154,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 4) {
+        countSelected8 = $elements.length;
+        if (countSelected8 < 4) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -155,7 +163,7 @@ describe("My First Test", () => {
           cy.screenshot(`千葉県_${timeFailed}`);
     
         }
-        countSelected8 = $elements.length;
+        
       });
     cy.get("#area_select").select("大阪府");
     cy.get("#store_select > div.block-body.store_list")
@@ -165,7 +173,7 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected9 = $elements.length;
-        if ($elements.length < 4) {
+        if (countSelected9 < 4) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -181,7 +189,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 2) {
+        countSelected10 = $elements.length;
+        if (countSelected10 < 2) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -189,7 +198,7 @@ describe("My First Test", () => {
           cy.screenshot(`愛知県_${timeFailed}`);
     
         }
-        countSelected10 = $elements.length;
+       
       });
     cy.get("#area_select").select("福岡県");
     cy.get("#store_select > div.block-body.store_list")
@@ -198,7 +207,8 @@ describe("My First Test", () => {
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
-        if ($elements.length < 1) {
+        countSelected11 = $elements.length;
+        if (countSelected11 < 1) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
@@ -206,7 +216,7 @@ describe("My First Test", () => {
           cy.screenshot(`福岡県_${timeFailed}`);
     
         }
-        countSelected11 = $elements.length;
+        
       });
   });
   after(() => {
