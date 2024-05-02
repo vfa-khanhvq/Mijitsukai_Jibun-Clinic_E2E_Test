@@ -39,4 +39,6 @@ jobs:
           pwd
           ls
             aws s3 cp data s3://mijitsukai-vfaproject/data/ --recursive
+            aws s3 cp cypress/screenshots s3://mijitsukai-vfaproject/screenshots --recursive
+            aws s3 cp cypress/videos s3://mijitsukai-vfaproject/videos --recursive
   
