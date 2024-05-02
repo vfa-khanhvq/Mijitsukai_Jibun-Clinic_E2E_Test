@@ -160,12 +160,12 @@ describe("My First Test", () => {
     cy.get("#area_select").select("大阪府");
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
-      .should("have.length", 2);
+      .should("have.length", 4);
     cy.get("#store_select > div.block-body.store_list")
       .find("div")
       .then(($elements) => {
         countSelected9 = $elements.length;
-        if ($elements.length < 2) {
+        if ($elements.length < 4) {
           const time = new Date();
           const timeFailed = `${time.getFullYear()}${
             time.getMonth() + 1
