@@ -30,6 +30,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected1 = $elements.length;
+        if (countSelected1 < 1) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`北海道_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("北海道");
     cy.get("#store_select > div.block-body.store_list")
@@ -39,6 +48,14 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected2 = $elements.length;
+        if (countSelected2 < 1) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`北海道_${timeFailed}`);
+        }
+        
       });
     cy.get("#area_select").select("東京23区");
     cy.get("#store_select > div.block-body.store_list")
@@ -48,6 +65,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected3 = $elements.length;
+        if (countSelected3 < 6) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`東京23区_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("東京23区外");
     cy.get("#store_select > div.block-body.store_list")
@@ -57,6 +83,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected4 = $elements.length;
+        if (countSelected4 < 3) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`東京23区外_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
@@ -66,6 +101,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected5 = $elements.length;
+        if (countSelected5 < 2) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()} ${
+            time.getMonth() + 1
+          } ${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`神奈川県_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("神奈川県");
     cy.get("#store_select > div.block-body.store_list")
@@ -75,6 +119,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected6 = $elements.length;
+        if (countSelected6 < 2) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`神奈川県_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("埼玉県");
     cy.get("#store_select > div.block-body.store_list")
@@ -84,6 +137,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected7 = $elements.length;
+        if (countSelected7 < 2) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`埼玉県_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("千葉県");
     cy.get("#store_select > div.block-body.store_list")
@@ -93,6 +155,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected8 = $elements.length;
+        if (countSelected8 < 4) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`千葉県_${timeFailed}`);
+    
+        }
+        
       });
     cy.get("#area_select").select("大阪府");
     cy.get("#store_select > div.block-body.store_list")
@@ -102,6 +173,14 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected9 = $elements.length;
+        if (countSelected9 < 4) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`大阪府_${timeFailed}`);
+          
+        }
       });
     cy.get("#area_select").select("愛知県");
     cy.get("#store_select > div.block-body.store_list")
@@ -111,6 +190,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected10 = $elements.length;
+        if (countSelected10 < 2) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`愛知県_${timeFailed}`);
+    
+        }
+       
       });
     cy.get("#area_select").select("福岡県");
     cy.get("#store_select > div.block-body.store_list")
@@ -120,6 +208,15 @@ describe("My First Test", () => {
       .find("div")
       .then(($elements) => {
         countSelected11 = $elements.length;
+        if (countSelected11 < 1) {
+          const time = new Date();
+          const timeFailed = `${time.getFullYear()}${
+            time.getMonth() + 1
+          }${time.getDate()} - ${time.toLocaleTimeString()}`;
+          cy.screenshot(`福岡県_${timeFailed}`);
+    
+        }
+        
       });
   });
   after(() => {
